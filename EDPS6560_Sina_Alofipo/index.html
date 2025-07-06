@@ -12,16 +12,16 @@
     <!-- Custom CSS -->
     <style>
         :root {
-            --black: #000000;
-            --silver: #C0C0C0;
+            --white: #FFFFFF;
+            --brown: #641e16;
         }
         
         .hero-section {
             min-height: 100vh;
-            background-color: var(--black);
+            background-color: var(--white);
             position: relative;
             overflow: hidden;
-            color: var(--silver);
+            color: var(--brown);
             padding-top: 76px; /* added to account for fixed navbar */
         }
         
@@ -83,7 +83,7 @@
             justify-content: space-between;
             align-items: center;
         }
-        
+                
         /* Ensure dropdown menu expands downward */
         .navbar-collapse {
             position: absolute;
@@ -123,17 +123,17 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <a class="navbar-brand" href="#">Sosina S. Alofipo</a>
+            <a class="navbar-brand" href="./index.html">Sosina S. Alofipo</a>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./AboutMe.html">About Me</a>
+                        <a class="nav-link" href="./index.html">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="./Projects.html">Projects</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="./Contact.html">Contact</a>
+                        <a class="nav-link" href="./AboutMe.html">About Me</a>
                     </li>
                 </ul>
             </div>
@@ -149,7 +149,7 @@
                 <br>
                 <h2 class="lead mb-4">Welcome to my portfolio!</h2>
                 <br>
-                <button class="btn btn-primary btn-lg">Explore My Work</button>
+                <a href="./Projects.html" class="btn btn-primary btn-lg">Explore My Work</a>
             </div>
         </div>
     </div>
