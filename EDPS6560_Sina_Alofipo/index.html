@@ -9,6 +9,9 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <!-- Custom CSS -->
     <style>
         :root {
@@ -45,28 +48,25 @@
         }
         
         .navbar {
-            background-color: var(--black) !important;
-            border-bottom: 1px solid var(--silver);
+            background-color: var(--white);
+            border-bottom: 10px solid var(--brown);
         }
         
         .navbar-brand {
-            color: var(--silver) !important;
+            color: var(--brown);
             font-family: 'Times New Roman', serif;
             font-size: 1.5rem;
-            order: 2; /* Reorder brand to center */
-        }
-        
-        .navbar-toggler {
-            order: 1; /* Move hamburger to left */
-            border-color: var(--silver) !important;
         }
         
         .navbar-nav {
-            order: 3; /* Move nav items to right */
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 1rem;
         }
         
         .nav-link {
-            color: var(--silver) !important;
+            color: var(--brown);
             transition: opacity 0.3s ease;
         }
         
@@ -74,68 +74,86 @@
             opacity: 0.8;
         }
         
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23C0C0C0' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
-        }
-        
         .navbar .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-                
-        /* Ensure dropdown menu expands downward */
-        .navbar-collapse {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            right: 0;
-            background-color: var(--black);
-            border-bottom: 1px solid var(--silver);
-            z-index: 1000;
-        }
-        
-        .navbar-nav .nav-item {
-            border-bottom: 1px solid rgba(192, 192, 192, 0.2);
-        }
-        
-        .navbar-nav .nav-item:last-child {
-            border-bottom: none;
-        }
         
         .btn-primary {
-            background-color: var(--silver);
-            border-color: var(--silver);
-            color: var(--black);
+            background-color: var(--brown);
+            border-color: var(--brown);
+            color: var(--brown);
             font-weight: bold;
         }
         
         .btn-primary:hover {
             background-color: transparent;
-            border-color: var(--silver);
-            color: var(--silver);
+            border-color: var(--white);
+            color: var(--white);
+        }
+        
+        .accordion-button {
+            font-size: 1.25rem;
+            padding: 1rem 1.5rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--brown) !important;
+            color: var(--white) !important;
+            border-color: var(--brown) !important;
+        }
+        
+        .accordion-button:focus {
+            box-shadow: 0 0 0 0.25rem rgba(100, 30, 22, 0.25);
+            border-color: var(--brown);
+        }
+        
+        .accordion-item {
+            border: 2px solid var(--brown);
+            margin-bottom: 1rem;
+        }
+        
+        .accordion-body {
+            padding: 2rem;
+        }
+        
+        .contact-link {
+            color: var(--brown);
+            text-decoration: none;
+            font-size: 1.25rem;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            border: 2px solid var(--brown);
+            border-radius: 5px;
+            display: inline-block;
+            min-width: 150px;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            background-color: var(--brown);
+            color: var(--white);
+            text-decoration: none;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(100, 30, 22, 0.3);
+        }
+        
+        .contact-link i {
+            color: inherit;
         }
     </style>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <a class="navbar-brand" href="./index.html">Sosina S. Alofipo</a>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Contact.html">Contact</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./Projects.html">Projects</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./AboutMe.html">About Me</a>
-                    </li>
-                </ul>
+            <a class="navbar-brand">
+                <img src="./images/Portfolio Logo.png" alt="portfolio logo" class="img-fluid" style="width: 64px; height: 64px;">
+            </a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="#about-me">About Me</a>
+                <a class="nav-link" href="#projects">My Projects</a>
+                <a class="nav-link" href="#contact">Contact</a>
             </div>
         </div>
     </nav>
@@ -148,12 +166,129 @@
                 <h1 class="display-1 mb-4" style="white-space: wrap; text-align: center;">Hello | Tālofa | Mālō e lelei</h1>
                 <br>
                 <h2 class="lead mb-4">Welcome to my portfolio!</h2>
-                <br>
-                <a href="./Projects.html" class="btn btn-primary btn-lg">Explore My Work</a>
             </div>
         </div>
     </div>
+    <hr class="section-divider" style="border-color: var(--brown); border-width: 50px;"> 
+    <!--About Me section-->
+    <div id="about-me" class="container mt-5">
+        <h1 class="text-center my-2 pt-5">About Me</h1>
+        <div class="row align-items-start">
+            <div class="col-md-4 text-center">
+                <div class="border border-3 p-3 rounded" style="max-width: 250px; margin: 0 auto;">
+                    <img src="./images/headshot.jpeg" alt="headshot of Sosina Alofipo" class="img-fluid rounded">
+                </div>
+            </div>
+            <div class="col-md-8">
+                <br>
+                <p>Hello! I'm Sosina Alofipo, a lifelong learner and aspiring instructional designer. I have a deep interest in educational technology and its potential to transform learning experiences. My background spans across curriculum development, instructional design, and digital learning solutions.</p>
+                <p>With roots in Pacific Islander culture, I bring a unique perspective to my work in education. I believe in creating inclusive and engaging learning environments that celebrate diversity and promote student success.</p>
+                <p>When I'm not working on educational projects, you can find me exploring new music, looking for new places to eat, or enjoying time with my family.</p>
+            </div>
+        </div>
+    </div>
+    <hr class="section-divider" style="border-color: var(--brown); border-width: 50px;">    
+    <!--Projects section-->
+    <div id="projects" class="container my-5">
+        <h1 class="text-center mb-4">Projects</h1>
+        <p class="text-center mb-5">Explore my work!</p>
+        <!-- Accordion container -->
+        <div class="accordion" id="projectsAccordion">
+            
+            <!--Multimedia Production Projects-->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingMultimedia">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseMultimedia" aria-expanded="false" aria-controls="collapseMultimedia" style="background-color: var(--white); color: var(--brown); font-weight: bold; border: 2px solid var(--brown);">
+                        Multimedia Production
+                    </button>
+                </h2>
+                <div id="collapseMultimedia" class="accordion-collapse collapse" aria-labelledby="headingMultimedia" data-bs-parent="#projectsAccordion">
+                    <div class="accordion-body">
+                        <video controls src="./images/Information Literacy.mp4" alt="Video on information literacy" class="img-fluid rounded mb-3" style="width: 100%; height: auto;"></video>
+                        <h4>Information Literacy in the Age of AI</h4>
+                        <p>This multimedia project explores the importance of information literacy in the age of AI. It provides a comprehensive overview of the key concepts and skills needed to navigate today's digital landscape effectively.</p>
+                    </div>
+                </div>
+            </div>
 
+            <!--Interactive Design Projects-->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingInteractive">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInteractive" aria-expanded="false" aria-controls="collapseInteractive" style="background-color: var(--white); color: var(--brown); font-weight: bold; border: 2px solid var(--brown);">
+                        Interactive Design
+                    </button>
+                </h2>
+                <div id="collapseInteractive" class="accordion-collapse collapse" aria-labelledby="headingInteractive" data-bs-parent="#projectsAccordion">
+                    <div class="accordion-body">
+                        <h3>BSG Tips For U</h3>
+                        <p>This interactive design project is a collection of tips and tricks for first-year business students. It includes a variety of helpful links and firsthand advice from the Business Student Government members.</p>
+                        <div style="width: 100%; margin-bottom: 2rem;">
+                            <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+                                <iframe title="BSG Tips For U" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/6626912b5b8415001465e577" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> 
+                            </div> 
+                        </div>
+                        
+                        <h3>Navigating Eccles</h3>
+                        <p>This interactive design project is a collection of resources for navigating the David Eccles School of Business, mainly to introduce first-year students to the many resources offered to first-year students.</p>
+                        <div style="width: 100%; margin-bottom: 2rem;">
+                            <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+                                <iframe title="Navigating Eccles" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/67ae64f8117d7b1f34b80481" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> 
+                            </div> 
+                        </div>
+                        
+                        <h3>Meet the Team</h3>
+                        <p>This interactive design project was created for a team of student staff members as a means to get to know the university staff members they would be working with.</p>
+                        <div style="width: 100%; margin-bottom: 2rem;">
+                            <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+                                <iframe title="Meet the Team" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/6684763d429d3d0014650d99" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> 
+                            </div> 
+                        </div>
+                        
+                        <h3>Emailing Faculty & Staff</h3>
+                        <p>This interactive design project was created to help prepare students to properly communicate with university faculty and staff via email.</p>
+                        <div style="width: 100%; margin-bottom: 2rem;">
+                            <div style="position: relative; padding-bottom: 56.25%; padding-top: 0; height: 0;">
+                                <iframe title="Emailing Faculty & Staff" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/65cbacb182627600140357d4" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> 
+                            </div> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!--Instructional Design & LMS Projects-->
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingInstructional">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructional" aria-expanded="false" aria-controls="collapseInstructional" style="background-color: var(--white); color: var(--brown); font-weight: bold; border: 2px solid var(--brown);">
+                        Instructional Design & LMS
+                    </button>
+                </h2>
+                <div id="collapseInstructional" class="accordion-collapse collapse" aria-labelledby="headingInstructional" data-bs-parent="#projectsAccordion">
+                    <div class="accordion-body">
+                        <p>Coming soon! This section will showcase instructional design projects and LMS implementations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="section-divider" style="border-color: var(--brown); border-width: 50px;">    
+    <!--Contact section-->
+    <div id="contact" class="container my-5 text-center">
+        <h1 class="mb-4" style="color: var(--brown);">Connect with me!</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <p class="mb-3">
+                    <a href="mailto:sosina.salima@gmail.com" class="contact-link">
+                        <i class="fas fa-envelope me-2"></i>Email
+                    </a>
+                </p>
+                <p class="mb-3">
+                    <a href="https://www.linkedin.com/in/sosina-alofipo-81437a225" class="contact-link" target="_blank">
+                        <i class="fab fa-linkedin me-2"></i>LinkedIn
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
     <!-- Bootstrap JS Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
