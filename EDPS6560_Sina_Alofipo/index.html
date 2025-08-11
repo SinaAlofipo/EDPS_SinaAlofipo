@@ -80,6 +80,11 @@
             align-items: center;
         }
         
+        .navbar-brand {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+        
         .btn-primary {
             background-color: var(--brown);
             border-color: var(--brown);
@@ -142,11 +147,21 @@
         .contact-link i {
             color: inherit;
         }
+        
+        /* Smooth scrolling for navigation links */
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* Offset for fixed navbar */
+        #about-me, #projects, #contact {
+            scroll-margin-top: 100px;
+        }
     </style>
 
     <!-- Navigation Bar -->
     <nav class="navbar navbar-expand-lg fixed-top">
-        <div class="container">
+        <div class="container-fluid px-3">
             <a class="navbar-brand" href="#top">
                 <img src="./images/Portfolio Logo.png" alt="portfolio logo" class="img-fluid" style="width: 64px; height: 64px;">
             </a>
@@ -165,18 +180,39 @@
               <img src="./images/shoreline.jpg" alt="island shoreline" class="img-fluid" style="width: 100vw; height: 200px; object-fit: cover; margin: 0; padding: 0 0 50px 0; position: relative; left: 50%; right: 50%; transform: translateX(-50%);">
                 <h1 class="display-1 mb-4" style="white-space: wrap; text-align: center;">Hello | Tālofa | Mālō e lelei</h1>
                 <br>
-                <h2 class="lead mb-4">Welcome to my portfolio!</h2>
+                <h2 class="lead mb-4" style="font-size: 2rem;">Welcome to my portfolio!</h2>
+                <p class="mb-4" style="font-size: 1.125rem;">
+                    Explore my journey in educational technology and instructional design
+                </p>
+                <div class="row justify-content-center">
+                    <div class="col-auto">
+                        <a href="#projects" class="btn" style="background-color: var(--brown); color: var(--white); margin: 0.5rem;">
+                            View My Work
+                        </a>
+                        <a href="#about-me" class="btn btn-outline" style="border-color: var(--brown); color: var(--brown); margin: 0.5rem;">
+                            Learn About Me
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
     <hr class="section-divider" style="border-color: var(--brown); border-width: 50px;"> 
     <!--About Me section-->
     <div id="about-me" class="container mt-5">
-        <h1 class="text-center my-2 pt-5">About Me</h1>
+        <h1 class="text-center my-2 pt-5" style="color: var(--brown); font-weight: bold; font-size: 3rem;">About Me</h1>
         <div class="row align-items-start">
             <div class="col-md-4 text-center">
                 <div class="border border-3 p-3 rounded" style="max-width: 250px; margin: 0 auto;">
                     <img src="./images/headshot.jpeg" alt="headshot of Sosina Alofipo" class="img-fluid rounded">
+                </div>
+                <p class="mt-3" style="font-size: 1.125rem; color: var(--brown); font-style: italic;">
+                    Aspiring Instructional Designer | Educational Technology Enthusiast | Lifelong Learner
+                </p>
+                <div class="mt-3">
+                    <span class="badge" style="background-color: var(--brown); margin: 0.25rem;">Curriculum Design</span>
+                    <span class="badge" style="background-color: var(--brown); margin: 0.25rem;">LMS Design</span>
+                    <span class="badge" style="background-color: var(--brown); margin: 0.25rem;">Interactive Media</span>
                 </div>
             </div>
             <div class="col-md-8">
@@ -186,12 +222,43 @@
                 <p>When I'm not working on educational projects, you can find me exploring new music, looking for new places to eat, or enjoying time with my family.</p>
             </div>
         </div>
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div class="p-3 border rounded" style="border-color: var(--brown); background-color: #f8f9fa;">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <i class="fas fa-music fa-lg me-3" style="color: var(--brown);"></i>
+                            <div>
+                                <small class="text-muted">Currently exploring:</small>
+                                <p class="mb-0" style="color: var(--brown); font-weight: 500;">New Zealand RnB Artists</p>
+                            </div>
+                        </div>
+                        <a href="https://open.spotify.com/playlist/37i9dQZF1E4yzGGEiKCgC5?si=cb09b613659e4747" class="btn btn-sm btn-outline" style="border-color: var(--brown); color: var(--brown);">
+                            🎵 Listen
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
     <hr class="section-divider" style="border-color: var(--brown); border-width: 50px;">    
     <!--Projects section-->
     <div id="projects" class="container my-5">
-        <h1 class="text-center mb-4" style="font-weight: bold;">Projects</h1>
-        <p class="text-center mb-5">Explore my work!</p>
+        <h1 class="text-center mb-4" style="color: var(--brown); font-weight: bold; font-size: 3rem;">Projects</h1>
+        <div class="d-flex justify-content-center align-items-center mb-5">
+            <div class="text-center mx-4">
+                <i class="fas fa-graduation-cap fa-2x" style="color: var(--brown);"></i>
+                <p class="mt-2 mb-0">Education</p>
+            </div>
+            <div class="text-center mx-4">
+                <i class="fas fa-laptop-code fa-2x" style="color: var(--brown);"></i>
+                <p class="mt-2 mb-0">Technology</p>
+            </div>
+            <div class="text-center mx-4">
+                <i class="fas fa-lightbulb fa-2x" style="color: var(--brown);"></i>
+                <p class="mt-2 mb-0">Innovation</p>
+            </div>
+        </div>
         <!-- Accordion container -->
         <div class="accordion" id="projectsAccordion">
             
@@ -228,6 +295,8 @@
                             </div> 
                         </div>
                         
+                        <hr style="border-color: var(--brown); border-width: 2px; margin: 2rem 0;">
+                        
                         <h3>Navigating Eccles</h3>
                         <p>This interactive design project is a collection of resources for navigating the David Eccles School of Business, mainly to introduce first-year students to the many resources offered to first-year students.</p>
                         <div style="width: 100%; margin-bottom: 2rem;">
@@ -236,6 +305,8 @@
                             </div> 
                         </div>
                         
+                        <hr style="border-color: var(--brown); border-width: 2px; margin: 2rem 0;">
+                        
                         <h3>Meet the Team</h3>
                         <p>This interactive design project was created for a team of student staff members as a means to get to know the university staff members they would be working with.</p>
                         <div style="width: 100%; margin-bottom: 2rem;">
@@ -243,6 +314,8 @@
                                 <iframe title="Meet the Team" frameborder="0" width="1200" height="675" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://view.genially.com/6684763d429d3d0014650d99" type="text/html" allowscriptaccess="always" allowfullscreen="true" scrolling="yes" allownetworking="all"></iframe> 
                             </div> 
                         </div>
+                        
+                        <hr style="border-color: var(--brown); border-width: 2px; margin: 2rem 0;">
                         
                         <h3>Emailing Faculty & Staff</h3>
                         <p>This interactive design project was created to help prepare students to properly communicate with university faculty and staff via email.</p>
@@ -264,7 +337,17 @@
                 </h2>
                 <div id="collapseInstructional" class="accordion-collapse collapse" aria-labelledby="headingInstructional" data-bs-parent="#projectsAccordion">
                     <div class="accordion-body">
-                        <p>Coming soon! This section will showcase instructional design projects and LMS implementations.</p>
+                        <h3>Canvas LMS Course: Eccles Beginnings: Navigating U</h3>
+                        <p>A summer transition course for incoming University of Utah business students, designed to foster confidence, engagement, and readiness before the first semester begins. The course blends interactive learning activities with practical resources to help students navigate academic expectations and campus life.</p>
+                        <div style="width: 100%; height: 400px; overflow-y: auto; border: 2px solid var(--brown); border-radius: 0.375rem; margin-bottom: 1rem;">
+                            <img src="./images/EB Homepage.png" alt="Eccles Beginnings: Navigating U course homepage" class="img-fluid" style="width: 100%; height: auto;">
+                        </div>
+                        
+                        <hr style="border-color: var(--brown); border-width: 2px; margin: 2rem 0;">
+                        
+                        <h3>Canvas LMS Course: Finding Balance: Stress Management Strategies for First-Year Graduate Students</h3>
+                        <p>A self-paced course designed to help first-year graduate students identify personal stressors, explore evidence-based coping strategies, and create a customized stress management plan. The course guides students through three key areas—<strong>Thrive</strong> (physical and mental health), <strong>Succeed</strong> (academic and career balance), and <strong>Matter</strong> (purpose, community, and social connection)—to support both academic success and overall well-being.</p>
+                        <img src="./images/Stress Homepage.png" alt="Finding Balance course homepage" class="img-fluid rounded mb-3" style="width: 100%; height: auto; border: 2px solid var(--brown);">
                     </div>
                 </div>
             </div>
@@ -273,7 +356,7 @@
     <hr class="section-divider" style="border-color: var(--brown); border-width: 50px;">    
     <!--Contact section-->
     <div id="contact" class="container my-5 text-center">
-        <h1 class="mb-4" style="color: var(--brown);">Connect with me!</h1>
+        <h1 class="mb-4" style="color: var(--brown); font-weight: bold; font-size: 3rem;">Connect with me!</h1>
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <p class="mb-3">
